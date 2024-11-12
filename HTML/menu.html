@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU</title>
+    <link rel="stylesheet" href="../CSS/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="icon" href="../image/icon00-essential-oi.png">
+    <script src="../JS/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="../HTML/QApage.html">
+</head>
+
+<body>
+    <!-- 導覽列 -->
+    <nav class="fixed-top" >
+        <ul class="navBar" style="padding-right: 40px;">
+            <a href="../HTML/index.html"><img class="nav-img" src="../image/pv03-小-Loge-04.png" alt="logo"></a>
+            <li>
+                <button class="hhh">關於我們</button>
+            </li>
+            <li>
+                <button class="hhh">飲品菜單</button>
+            </li>
+            <li>
+                <button class="hhh">最新消息</button>
+            </li>
+            <li>
+                <button class="hhh">門市查詢</button>
+            </li>
+            <li>
+                <button class="hhh">聯絡我們</button>
+            </li>
+
+        </ul>
+    </nav>
+    <!-- 廣告欄 -->
+    <div class="drank" style="padding-top: 15px;">
+        <div class="outside">
+            <div class="pic">
+                <div class="serial">1/4</div>
+                <img class="img" src="../image/pb07-600-400.png" alt="img01">
+            </div>
+            <div class="pic">
+                <div class="serial">2/4</div>
+                <img class="img" src="../image/pb06-600-400.png" alt="img02">
+            </div>
+            <div class="pic">
+                <div class="serial">3/4</div>
+                <img class="img" src="../image/pb05-600-400.png" alt="img03">
+            </div>
+            <div class="pic">
+                <div class="serial">4/4</div>
+                <img class="img" src="../image/pb04-600-400.png" alt="img04">
+            </div>
+            <!-- 新增.pic類別 點選按鈕 -->
+            <div class="prev" onclick="prev()"></div>
+            <div class="next" onclick="next()"></div>
+            <div style="text-align: center; margin-top: -30px">
+                <!-- 新增跳往某圖片按鈕 -->
+                <div class="dot" onclick="show(0)"></div>
+                <div class="dot" onclick="show(1)"></div>
+                <div class="dot" onclick="show(2)"></div>
+                <div class="dot" onclick="show(3)"></div>
+            </div>
+        </div>
+
+        <script>
+            // now 目前顯示第一張圖片
+            // num 圖片張數4
+            var pics, now = 0, num = 4;
+            // 載入網頁立即執行
+            window.onload = function () {
+                // console.log("ok");
+                // 取得幾張圖片
+                pics = document.getElementsByClassName("pic");
+                // console.log(pics.length);            
+                show(now);
+            }
+            function show(i) {
+                now = i;
+                for (var k = 0; k < pics.length; k++) {
+                    pics[k].style.display = "none";
+                }
+                // now 目前圖片顯示
+                pics[now].style.display = "block";
+            }
+            function next() {
+                now += 1;
+                if (now > 3) now = 0;
+                show(now);
+                console.log(now);
+
+            }
+            function prev() {
+                now -= 1;
+                if (now < 0) now = num - 1;
+                show(now);
+                console.log(now);
+
+            }
+        </script>
+    </div>
+    <!-- 菜單 -->
+    <div class="menu">
+        <picture>
+            <source media="(max-width: 900px)" srcset="../image/pmenu_直式菜單.png">
+            <img class="menu-img" src="../image/pmenu_橫式菜單.png" alt="MENU">
+        </picture>
+    </div>
+    <!-- 底部 -->
+    <footer>
+        <div class="bbb row ">
+            <div class="col-md-2 col-sm-4">
+                <ul class="sss text-center">
+                    <li class="ffz ">服務項目</li>
+                    <li>認識我們</li>
+                    <li>門市資訊</li>
+                    <li>最新消息</li>
+                    <li><a href="../HTML/QApage.html">常見問答</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-sm-8">
+                <ul class="sss">
+                    <li class="ffz">聯絡我們</li>
+                    <li>營業時間: 09:00 ~ 21:00</li>
+                    <li>電話: 042-5555-6665</li>
+                    <li>地址: 408南屯區公益路二段813號</li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-sm-12 sss">
+                <div class="d-flex">
+                    <div><img src="../image/pv02-中-Loge.png" alt="facebook"></div>
+                    <div><img src="../image/icon01-facebook.png" alt="facebook"></div>
+                    <div><img src="../image/icon01-instagram.png" alt="instagram"></div>
+                    <div><img src="../image/icon01-gmail.png" alt="gmail"></div>
+                </div>
+                <div class="ff2y">
+                    <span class="ffz">訂閱電子報: </span><input type="text" placeholder="***@gmail.com">
+                    <button class="bff">確認</button>
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+</body>
+
+</html>
